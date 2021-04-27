@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Aspects</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/07c0b83d94.js" crossorigin="anonymous"></script>
     <link
@@ -16,22 +16,35 @@
 <body>
     <div id="content">
         <div id="side-bar">
-            <h3 id="active-items-header">Aspects</h3>
-            <div id="todo-lists">
-                <p class="sidebar-section-header"><i class="fas fa-asterisk"></i>
-                    Sample Section</p>
+            <h3 id="sidebar-logo"><span class="material-icons-sharp logo-icon">
+                    nights_stay
+                </span> Aspects</h3>
+            <div class="sidebar-section">
+                <p class="sidebar-section-header">
+                    Guide Section <span class="material-icons-outlined sidebar-arrow">
+                        chevron_right
+                    </span></p>
                 <p class="sidebar-list selected-list">Sample List</p>
                 <p class="sidebar-list">New List</p>
+                <p class="sidebar-list">Another List</p>
+                <p class="sidebar-list">A Project</p>
+            </div>
+            <div class="sidebar-section">
+                <p class="sidebar-section-header"></i>
+                    Work Project <span class="material-icons-outlined sidebar-arrow">
+                        chevron_right
+                    </span></p>
+                <p class="sidebar-list">Project Two</p>
+                <p class="sidebar-list">So Many Examples</p>
                 <p class="sidebar-list">Another List</p>
             </div>
         </div>
         <div id="main">
             <div id="active-list">
                 <h3 id="active-items-header">Current List</h3>
-                <button class="active-item">complete this project</button>
-                <button class="active-item">google some random stuff</button>
-                <button class="inactive-item">google some random stuff</button>
-
+                <button class="item">complete this project</button>
+                <button class="item">google some random stuff</button>
+                <button class="item inactive">google some random stuff</button>
             </div>
             <div id="notes"></div>
         </div>
