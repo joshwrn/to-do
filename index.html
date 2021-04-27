@@ -7,9 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/07c0b83d94.js" crossorigin="anonymous"></script>
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
 </head>
 
 <body>
+    <div id="content">
+        <div id="side-bar">
+            <h3 id="active-items-header">Aspects</h3>
+            <div id="todo-lists">
+                <p class="sidebar-section-header"><i class="fas fa-asterisk"></i>
+                    Sample Section</p>
+                <p class="sidebar-list selected-list">Sample List</p>
+                <p class="sidebar-list">New List</p>
+                <p class="sidebar-list">Another List</p>
+            </div>
+        </div>
+        <div id="main">
+            <div id="active-list">
+                <h3 id="active-items-header">Current List</h3>
+                <button class="active-item">complete this project</button>
+                <button class="active-item">google some random stuff</button>
+                <button class="inactive-item">google some random stuff</button>
+
+            </div>
+            <div id="notes"></div>
+        </div>
+    </div>
     <script src="main.js"></script>
 </body>
 
