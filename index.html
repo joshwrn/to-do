@@ -15,38 +15,95 @@
 
 <body>
     <div id="content">
-        <div id="side-bar">
-            <h3 id="sidebar-logo"><span class="material-icons-sharp logo-icon">
-                    nights_stay
-                </span> Aspects</h3>
-            <div class="sidebar-section">
-                <p class="sidebar-section-header">
-                    Guide Section <span class="material-icons-outlined sidebar-arrow">
-                        chevron_right
-                    </span></p>
-                <p class="sidebar-list selected-list">Sample List</p>
-                <p class="sidebar-list">New List</p>
-                <p class="sidebar-list">Another List</p>
-                <p class="sidebar-list">A Project</p>
+        <div id="sidebar">
+            <div id="inner-sidebar">
+                <h3 id="sidebar-logo"><span class="material-icons-sharp logo-icon">
+                        nights_stay
+                    </span> Aspects</h3>
+                <div class="sidebar-section">
+                    <p class="sidebar-section-header">
+                        Guide Section <span class="material-icons-outlined sidebar-arrow">
+                            chevron_right
+                        </span></p>
+                    <p class="sidebar-list ">Sample List</p>
+                    <p class="sidebar-list selected-list">New List</p>
+                    <p class="sidebar-list">Another List</p>
+                    <p class="sidebar-list">A Project</p>
+                </div>
+                <div class="sidebar-section">
+                    <p class="sidebar-section-header"></i>
+                        Work Project <span class="material-icons-outlined sidebar-arrow">
+                            chevron_right
+                        </span></p>
+                    <p class="sidebar-list">Project Two</p>
+                    <p class="sidebar-list">So Many Examples</p>
+                    <p class="sidebar-list">Another List</p>
+                </div>
+                <div class="sidebar-section">
+                    <p class="sidebar-section-header"></i>
+                        Work Project <span class="material-icons-outlined sidebar-arrow">
+                            chevron_right
+                        </span></p>
+                    <p class="sidebar-list">Project Two</p>
+                    <p class="sidebar-list">So Many Examples</p>
+                    <p class="sidebar-list">Another List</p>
+                </div>
+                <div class="sidebar-section">
+                    <p class="sidebar-section-header"></i>
+                        Work Project <span class="material-icons-outlined sidebar-arrow">
+                            chevron_right
+                        </span></p>
+                    <p class="sidebar-list">Project Two</p>
+                    <p class="sidebar-list">So Many Examples</p>
+                    <p class="sidebar-list">Another List</p>
+                    <p class="sidebar-list">Project Two</p>
+                    <p class="sidebar-list">So Many Examples</p>
+                    <p class="sidebar-list">Another List</p>
+                </div>
             </div>
-            <div class="sidebar-section">
-                <p class="sidebar-section-header"></i>
-                    Work Project <span class="material-icons-outlined sidebar-arrow">
-                        chevron_right
-                    </span></p>
-                <p class="sidebar-list">Project Two</p>
-                <p class="sidebar-list">So Many Examples</p>
-                <p class="sidebar-list">Another List</p>
+            <div id="sidebar-footer">
+                <div id="inner-sidebar-footer">
+                    <span class="material-icons-sharp footer-icon">
+                        settings
+                    </span>
+                </div>
             </div>
         </div>
         <div id="main">
             <div id="active-list">
                 <h3 id="active-items-header">Current List</h3>
                 <button class="item">complete this project</button>
-                <button class="item">google some random stuff</button>
+                <button class="item important">function that loops through the array</button>
                 <button class="item inactive">google some random stuff</button>
             </div>
-            <div id="notes"></div>
+            <div id="details">
+                <h3 id="details-header">Details</h3>
+                <div id="details-inner">
+                    <div id="notes">
+                        <h3 id="notes-header">Notes</h3>
+                        <p contenteditable="true" id="notes-text">Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Sed dignissim
+                            gravida
+                            urna, eget tempor nisl lobortis vel. Ut venenatis non orci vitae congue.
+                        </p>
+                    </div>
+                    <div id="status">
+                        <div id="dates">
+                            <h3 id="dates-header">Dates</h3>
+                            <div id="dates-text">
+                                <p id="date-added-text"> Date Added: 4/27/21
+                                </p>
+                                <p id="date-completed-text"> Date Completed: N/A
+                                </p>
+                            </div>
+                        </div>
+                        <div id="priority">
+                            <h3 id="priority-header">Priority</h3>
+                            <button id="priority-button">Important</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="main.js"></script>
