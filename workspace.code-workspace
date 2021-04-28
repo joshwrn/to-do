@@ -1,0 +1,16 @@
+{
+  "folders": [
+	{
+		"path": "."
+	},
+	{
+		"path": "../Restaurant"
+	},
+	{
+		"path": "../Library-App"
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "to-do"
+  }
+}
