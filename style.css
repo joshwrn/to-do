@@ -48,7 +48,7 @@ body {
 }
 
 :root {
-  --active-item-color: rgb(0, 175, 255);
+  --active-item-color: rgb(0, 132, 255);
 }
 
 #content {
@@ -190,11 +190,55 @@ body {
 
 #main {
   display: grid;
-  grid-template-columns: 2fr 4fr;
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr;
   background: rgb(0, 0, 0);
   padding: 4em 0 4em 0;
   overflow: hidden;
+}
+
+/*? TODO INPUTS */
+
+#input-center-box {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 10px;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.205);
+  backdrop-filter: blur(20px);
+}
+
+#new-todo-input {
+  background: rgba(145, 145, 145, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.281);
+  border-radius: 10px;
+  height: 40px;
+  width: 100%;
+  align-self: center;
+}
+
+input:focus {
+  background: rgba(145, 145, 145, 0.38);
+}
+
+input,
+select,
+textarea {
+  color: white;
+  padding-left: 10px;
+  text-align: left;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#add-item-button {
+  padding-left: 10%;
+  color: white;
+  border: none;
+  background: rgba(0, 0, 0, 0);
 }
 
 /** ACTIVE SECTION */
@@ -203,10 +247,12 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 0 10% 0 10%;
+  padding: 0 10% 20% 10%;
 }
 
 #inner-active-list {
+  display: flex;
+  flex-direction: column;
   max-height: 80vh;
   overflow-y: scroll;
 }
@@ -307,11 +353,11 @@ body {
 /*! SELECTED ITEMS */
 
 .selected-item {
-  transform: translateX(25%);
+  transform: translateY(-3%);
 }
 
 .selected-item:hover {
-  transform: translateX(25%) translateY(-3%);
+  transform: translateY(-3%);
 }
 
 /** DETAILS SECTION */
@@ -331,7 +377,7 @@ body {
 }
 
 #details-inner {
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr;
   gap: 10%;
 }
@@ -342,7 +388,7 @@ body {
   background: rgb(20, 20, 20);
   height: fit-content;
   max-height: 500px;
-  width: 300px;
+  width: 200px;
   padding: 20px;
   border-radius: 10px;
 }
@@ -402,7 +448,7 @@ body {
 
 #priority-button {
   margin: 1em 0 1em 0;
-  width: fit-content;
+  width: 125px;
   padding: 0.5em 2em 0.5em 2em;
   transition: 250ms;
   border: 0px;
@@ -412,7 +458,7 @@ body {
   border-radius: 50px;
   transition: box-shadow 500ms, transform 250ms ease-in;
   background: var(--active-item-color);
-  align-self: right;
+  text-align: center;
 }
 
 #priority-button:hover {

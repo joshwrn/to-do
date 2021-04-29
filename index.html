@@ -15,50 +15,19 @@
 
 <body>
     <div id="content">
+
         <div id="sidebar">
             <div id="inner-sidebar">
                 <h3 id="sidebar-logo"><span class="material-icons-sharp logo-icon">
                         nights_stay
                     </span> Aspects</h3>
                 <div class="sidebar-section">
-                    <p class="sidebar-section-header">
-                        Guide Section <span class="material-icons-outlined sidebar-arrow">
+                    <p class="sidebar-section-header" data-section="0">
+                        Current Lists <span class="material-icons-outlined sidebar-arrow">
                             chevron_right
                         </span></p>
-                    <p class="sidebar-list ">Sample List</p>
-                    <p class="sidebar-list selected-list">New List</p>
-                    <p class="sidebar-list">Another List</p>
-                    <p class="sidebar-list">A Project</p>
-                </div>
-                <div class="sidebar-section">
-                    <p class="sidebar-section-header"></i>
-                        Work Project <span class="material-icons-outlined sidebar-arrow">
-                            chevron_right
-                        </span></p>
-                    <p class="sidebar-list">Project Two</p>
-                    <p class="sidebar-list">So Many Examples</p>
-                    <p class="sidebar-list">Another List</p>
-                </div>
-                <div class="sidebar-section">
-                    <p class="sidebar-section-header"></i>
-                        Work Project <span class="material-icons-outlined sidebar-arrow">
-                            chevron_right
-                        </span></p>
-                    <p class="sidebar-list">Project Two</p>
-                    <p class="sidebar-list">So Many Examples</p>
-                    <p class="sidebar-list">Another List</p>
-                </div>
-                <div class="sidebar-section">
-                    <p class="sidebar-section-header"></i>
-                        Work Project <span class="material-icons-outlined sidebar-arrow">
-                            chevron_right
-                        </span></p>
-                    <p class="sidebar-list">Project Two</p>
-                    <p class="sidebar-list">So Many Examples</p>
-                    <p class="sidebar-list">Another List</p>
-                    <p class="sidebar-list">Project Two</p>
-                    <p class="sidebar-list">So Many Examples</p>
-                    <p class="sidebar-list">Another List</p>
+                    <p class="sidebar-list selected-list" data-list="Sample List">Sample List</p>
+                    <p class="sidebar-list" data-list="New List">New List</p>
                 </div>
             </div>
             <div id="sidebar-footer">
@@ -72,39 +41,18 @@
         <div id="main">
             <div id="active-list">
                 <h3 id="active-items-header">Current List</h3>
+                <div id="input-center-box">
+                    <input class="input-box" id="new-todo-input" type="text" placeholder="New To-Do">
+                    <button id="add-item-button"><span id="add-item-button-icon" class="material-icons-outlined">
+                            add_circle_outline
+                        </span></button>
+                </div>
                 <div id="inner-active-list">
+
                     <button class="item selected-item">complete this project</button>
                     <button class="item low-priority">low priority task</button>
                     <button class="item important">function that looough the array</button>
-                    <button class="item inactive">google some random stuff</button><button class="item">complete this
-                        project</button>
-                    <button class="item low-priority">low priority task</button>
-                    <button class="item inactive">function thathrough the array</button>
-                    <button class="item important">google some raom stuff</button><button class="item">complete this
-                        project</button>
-                    <button class="item important">low priority task</button>
-                    <button class="item important">function th the array</button>
-                    <button class="item inactive">google some random stuff</button><button class="item">complete this
-                        project</button>
-                    <button class="item low-priority">low pity task</button>
-                    <button class="item important">function that loh the array</button>
-                    <button class="item inactive">google some randofszgfdagsdfm stuff</button>
-                    <button class="item">complete this project</button>
-                    <button class="item low-priority">low priority task</button>
-                    <button class="item important">function that looough the array</button>
-                    <button class="item inactive">google some random stuff</button><button class="item">complete this
-                        project</button>
-                    <button class="item low-priority">low priority task</button>
-                    <button class="item inactive">function thathrough the array</button>
-                    <button class="item important">google some raom stuff</button><button class="item">complete this
-                        project</button>
-                    <button class="item important">low priority task</button>
-                    <button class="item important">function th the array</button>
-                    <button class="item inactive">google some random stuff</button><button class="item">complete this
-                        project</button>
-                    <button class="item low-priority">low pity task</button>
-                    <button class="item important">function that loh the array</button>
-                    <button class="item inactive">google some randofszgfdagsdfm stuff</button>
+                    <button class="item inactive">google some random stuff</button>
                 </div>
             </div>
             <div id="details">
@@ -133,7 +81,7 @@
                         </div>
                         <div id="priority">
                             <h3 id="priority-header">Priority</h3>
-                            <button id="priority-button">Important</button>
+                            <button id="priority-button">Normal</button>
                         </div>
                     </div>
                 </div>
