@@ -48,7 +48,9 @@ body {
 }
 
 :root {
-  --active-item-color: rgb(0, 132, 255);
+  --normal-color: rgb(0, 132, 255);
+  --important-color: rgb(137, 47, 255);
+  --low-color: rgb(66, 199, 117);
 }
 
 #content {
@@ -276,7 +278,6 @@ input::placeholder {
   padding: 1em 2em 1em 2em;
   transition: 250ms;
   border: 0px;
-  background-color: var(--active-item-color);
   color: rgb(255, 255, 255);
   font-size: 0.8rem;
   border-radius: 50px;
@@ -286,10 +287,17 @@ input::placeholder {
 
 .item:hover {
   transform: translateY(-3%);
-  animation: item-flicker 1s linear 0s infinite alternate;
 }
 
-@keyframes item-flicker {
+.normal-priority {
+  background-color: var(--normal-color);
+}
+
+.normal-priority:hover {
+  animation: normal-flicker 1s linear 0s infinite alternate;
+}
+
+@keyframes normal-flicker {
   0% {
     box-shadow: 0px 0px 10px rgba(0, 174, 255, 0.5);
   }
@@ -300,11 +308,11 @@ input::placeholder {
 
 /*! IMPORTANT ITEMS */
 
-.important {
-  background: rgb(137, 47, 255);
+.important-priority {
+  background: var(--important-color);
 }
 
-.important:hover {
+.important-priority:hover {
   animation: important-flicker 1s linear 0s infinite alternate;
 }
 
@@ -320,7 +328,7 @@ input::placeholder {
 /*! LOW PRIORITY ITEMS */
 
 .low-priority {
-  background: rgb(66, 199, 117);
+  background: var(--low-color);
 }
 
 .low-priority:hover {
@@ -353,11 +361,11 @@ input::placeholder {
 /*! SELECTED ITEMS */
 
 .selected-item {
-  transform: translateY(-3%);
+  transform: translateY(-5%);
 }
 
 .selected-item:hover {
-  transform: translateY(-3%);
+  transform: translateY(-5%);
 }
 
 /** DETAILS SECTION */
@@ -387,7 +395,7 @@ input::placeholder {
 #notes {
   background: rgb(20, 20, 20);
   height: fit-content;
-  max-height: 500px;
+  max-height: 300px;
   width: 200px;
   padding: 20px;
   border-radius: 10px;
@@ -396,7 +404,7 @@ input::placeholder {
 #notes-inner {
   overflow-y: scroll;
   height: fit-content;
-  max-height: 430px;
+  max-height: 230px;
 }
 
 #notes-header {
@@ -452,16 +460,33 @@ input::placeholder {
   padding: 0.5em 2em 0.5em 2em;
   transition: 250ms;
   border: 0px;
-  background-color: var(--active-item-color);
   color: rgb(255, 255, 255);
   font-size: 0.8rem;
   border-radius: 50px;
   transition: box-shadow 500ms, transform 250ms ease-in;
-  background: var(--active-item-color);
   text-align: center;
 }
 
-#priority-button:hover {
-  box-shadow: 0px 0px 10px 0px rgb(47, 50, 255);
-  animation: item-flicker 1s linear 0s infinite alternate;
+.normal-priority-button:hover {
+  animation: normal-flicker 1s linear 0s infinite alternate;
+}
+
+.normal-priority-button {
+  background: var(--normal-color);
+}
+
+.important-priority-button {
+  background: var(--important-color);
+}
+
+.important-priority-button:hover {
+  animation: important-flicker 1s linear 0s infinite alternate;
+}
+
+.low-priority-button {
+  background: var(--low-color);
+}
+
+.low-priority-button:hover {
+  animation: low-flicker 1s linear 0s infinite alternate;
 }
