@@ -26,7 +26,9 @@
                         Current Lists <span class="material-icons-outlined sidebar-arrow">
                             chevron_right
                         </span></p>
-                    <p class="sidebar-list selected-list" data-list="Sample List">Sample List</p>
+                    <div id="sidebar-list-view">
+
+                    </div>
                 </div>
             </div>
             <div id="sidebar-footer">
@@ -41,7 +43,7 @@
             <div id="active-list">
                 <h3 id="active-items-header">Current List</h3>
                 <div id="input-center-box">
-                    <input class="input-box" id="new-todo-input" type="text" placeholder="New To-Do">
+                    <input maxlength="40" class="input-box" id="new-todo-input" type="text" placeholder="New To-Do">
                     <button id="add-item-button"><span id="add-item-button-icon" class="material-icons-outlined">
                             add_circle_outline
                         </span></button>

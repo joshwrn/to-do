@@ -194,7 +194,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr;
-  background: rgb(0, 0, 0);
+  background: rgb(0, 0, 0, 1);
   padding: 4em 0 4em 0;
   overflow: hidden;
 }
@@ -247,15 +247,18 @@ input::placeholder {
 
 #active-list {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr 1fr 10fr;
   padding: 0 10% 20% 10%;
 }
 
 #inner-active-list {
+  position: absolute;
+  grid-row: 3/-1;
   display: flex;
   flex-direction: column;
-  max-height: 80vh;
+  padding: 0 10% 20% 10%;
+  max-height: 65vh;
   overflow-y: scroll;
 }
 
@@ -283,6 +286,8 @@ input::placeholder {
   border-radius: 50px;
   transition: box-shadow 500ms, transform 250ms ease-in;
   cursor: grab;
+  position: relative;
+  z-index: 5;
 }
 
 .item:hover {
@@ -294,15 +299,15 @@ input::placeholder {
 }
 
 .normal-priority:hover {
-  animation: normal-flicker 1s linear 0s infinite alternate;
+  animation: normal-flicker 0.8s linear 0s infinite alternate;
 }
 
 @keyframes normal-flicker {
   0% {
-    box-shadow: 0px 0px 10px rgba(0, 174, 255, 0.5);
+    box-shadow: 0px 0px 10px rgba(75, 183, 255, 0.5);
   }
   100% {
-    box-shadow: 0px 0px 20px rgb(47, 50, 255);
+    box-shadow: 0px 0px 30px rgb(76, 109, 255);
   }
 }
 
@@ -313,15 +318,15 @@ input::placeholder {
 }
 
 .important-priority:hover {
-  animation: important-flicker 1s linear 0s infinite alternate;
+  animation: important-flicker 0.8s linear 0s infinite alternate;
 }
 
 @keyframes important-flicker {
   0% {
-    box-shadow: 0px 0px 10px rgba(155, 33, 255, 0.507);
+    box-shadow: 0px 0px 10px rgba(101, 74, 252, 0.507);
   }
   100% {
-    box-shadow: 0px 0px 20px rgb(89, 0, 161);
+    box-shadow: 0px 0px 30px rgb(69, 96, 216);
   }
 }
 
@@ -332,15 +337,15 @@ input::placeholder {
 }
 
 .low-priority:hover {
-  animation: low-flicker 1s linear 0s infinite alternate;
+  animation: low-flicker 0.8s linear 0s infinite alternate;
 }
 
 @keyframes low-flicker {
   0% {
-    box-shadow: 0px 0px 10px rgba(66, 199, 117, 0.5);
+    box-shadow: 0px 0px 10px rgba(115, 255, 169, 0.5);
   }
   100% {
-    box-shadow: 0px 0px 20px rgb(0, 109, 85);
+    box-shadow: 0px 0px 30px rgb(51, 122, 107);
   }
 }
 
@@ -371,9 +376,10 @@ input::placeholder {
 /** DETAILS SECTION */
 
 #details {
+  position: relative;
   display: grid;
   grid-template-rows: 1fr 10fr;
-  padding: 0 25% 0 10%;
+  padding: 0 0% 0 10%;
   border-left: 1px solid rgba(53, 53, 53, 0.644);
 }
 
@@ -385,7 +391,10 @@ input::placeholder {
 }
 
 #details-inner {
-  display: flex;
+  position: absolute;
+  grid-row: 2/-1;
+  display: grid;
+  padding: 0 0% 0 10%;
   grid-template-columns: 1fr 1fr;
   gap: 10%;
 }
@@ -437,7 +446,6 @@ input::placeholder {
 
 #dates-header {
   margin-bottom: 0.5em;
-  transition: text-shadow 250ms ease-in;
 }
 
 #dates-text {
@@ -468,7 +476,7 @@ input::placeholder {
 }
 
 .normal-priority-button:hover {
-  animation: normal-flicker 1s linear 0s infinite alternate;
+  animation: normal-flicker 0.8s linear 0s infinite alternate;
 }
 
 .normal-priority-button {
@@ -480,7 +488,7 @@ input::placeholder {
 }
 
 .important-priority-button:hover {
-  animation: important-flicker 1s linear 0s infinite alternate;
+  animation: important-flicker 0.8s linear 0s infinite alternate;
 }
 
 .low-priority-button {
@@ -488,5 +496,5 @@ input::placeholder {
 }
 
 .low-priority-button:hover {
-  animation: low-flicker 1s linear 0s infinite alternate;
+  animation: low-flicker 0.8s linear 0s infinite alternate;
 }

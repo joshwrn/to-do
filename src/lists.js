@@ -1,4 +1,4 @@
-let lists = ["Sample List"];
+let lists = ["Sample List", "cool list"];
 let todos = [
   {
     list: "Sample List",
