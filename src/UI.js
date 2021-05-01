@@ -38,28 +38,33 @@ const actions = () => {
         getTodo();
       }
     });
+
     //? TODO CREATION FUNCTION
     const creation = () => {
       //+ GET THE INNER DIV AND FIRST CHILD
       const listDiv = document.getElementById("inner-active-list");
       let theFirstChild = listDiv.firstChild;
+
       //+ CREAT TODO BUTTON AND GET VALUE FROM INPUT
       const newToDo = document.createElement("button");
       newToDo.textContent = inputToDo.value;
+
       //+ INSERT THE NEW TODO TO DIV
       newToDo.classList.add("item");
       newToDo.classList.add("normal-priority");
       listDiv.insertBefore(newToDo, theFirstChild);
+
       //+ CHANGE SELECTION TO NEW TODO
       changeSelection(newToDo);
     };
 
     //? ADDING TODO TO ARRAY
-    const selectedList = document.querySelector(".selected-list").innerHTML;
+
     const exportToArray = () => {
       //+ GET THE SELECTED LIST NAME TO INSERT IT INTO THE TODO OBJECT
-
+      const selectedList = document.querySelector(".selected-list").innerHTML;
       console.log("input value " + inputToDo.value);
+
       //+ RUN ADD TO ARRAY FUNCTION
       addToLists(
         selectedList,
@@ -69,6 +74,7 @@ const actions = () => {
         "Normal",
         ""
       );
+
       //+ CLEAR INPUT VALUE AFTER COMPLETE
       inputToDo.value = "";
     };
@@ -84,6 +90,7 @@ const actions = () => {
       getTodo();
     }
   });
+
   //! FIGURE OUT SELECTED ITEM
   const changeSelection = (selection) => {
     const currentItem = document.querySelector(".selected-item");
@@ -93,7 +100,6 @@ const actions = () => {
   };
 
   //! SWITCH CLASS TO SELECTED
-
   function selectNew(currentItem, newItem) {
     if (currentItem == null) {
       newItem.classList.add("selected-item");
@@ -119,13 +125,17 @@ const actions = () => {
         //* RUN THE FILL FUNCTIONS
         console.log(selectedTodo);
         openItem = selectedTodo;
+
         //* FILL NOTES
         notesText.innerHTML = selectedTodo.notes;
+
         //* FILL DATES
         dateAdded.innerHTML = `Date Added: ${selectedTodo.dateAdd}`;
         dateCompleted.innerHTML = `Date Completed: ${selectedTodo.dateComp}`;
+
         //* FILL PRIORITY
         priorityButton.textContent = selectedTodo.priority;
+
         //+ SET SELECTED PRIORITY SET IT TO LOWERCLASS AND SET THAT AS THE BUTTON CLASS
         priorityButton.className = `${selectedTodo.priority.toLowerCase()}-priority`;
       }
@@ -155,12 +165,15 @@ const actions = () => {
   const prioritySetFunction = (status, button, old, next, current) => {
     const currentItem = document.querySelector(".selected-item");
     const currentItemInner = currentItem.innerHTML;
+
     //+ PRIORITY BUTTON CHANGE COLOR
     priorityButton.textContent = status;
     priorityButton.className = button;
+
     //+ ITEM CHANGE COLOR
     currentItem.classList.remove(old);
     currentItem.classList.add(next);
+
     //+ SET TODO PRIORITY
     current.priority = status;
   };
@@ -213,6 +226,7 @@ const actions = () => {
 
   //! MAIN FUNCTION
   const fillCurrentList = () => {
+    console.log("filling liffst");
     let filteredArray = [];
     const selectedList = document.querySelector(".selected-list").innerHTML;
     const listDiv = document.getElementById("inner-active-list");
@@ -228,9 +242,11 @@ const actions = () => {
     const appendTodDos = (item) => {
       //+ GET THE INNER DIV AND FIRST CHILD
       let theFirstChild = listDiv.firstChild;
+
       //+ CREAT TODO BUTTON AND GET VALUE FROM INPUT
       const newToDo = document.createElement("button");
       newToDo.textContent = item.todo;
+
       //+ INSERT THE NEW TODO TO DIV
       newToDo.classList.add("item");
       newToDo.classList.add(`${item.priority.toLowerCase()}-priority`);
@@ -243,6 +259,7 @@ const actions = () => {
     selectNew(null, listDiv.firstChild);
     getTodo();
   };
+
   //! PAGE LOAD FUNCTIONS
   fillCurrentList();
 };
