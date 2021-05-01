@@ -2,21 +2,6 @@
   "folders": [
     {
       "path": "."
-    },
-    {
-      "path": "../Restaurant"
-    },
-    {
-      "path": "../Library-App"
-    },
-    {
-      "path": "../Misc/tests"
-    },
-    {
-      "path": "../tic-tac-toe/tic-tac-toe"
     }
-  ],
-  "settings": {
-    "liveServer.settings.multiRootWorkspaceName": "to-do"
-  }
+  ]
 }
