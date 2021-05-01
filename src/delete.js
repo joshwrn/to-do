@@ -9,15 +9,16 @@ const deleteFunctions = () => {
   const sidebarLists = document.getElementById("sidebar-list-view");
   let filteredArray = [];
 
-  //! FILTER FOR MULTIPLE TODOS
-  const deleteToDos = (item) => {
-    todos.filter(function (item) {
-      const selectedList = document.querySelector(".selected-list").innerHTML;
-      if (item.list == selectedList && item.dateComp != "N/A") {
-        todos.splice(todos.indexOf(item), 1);
-      }
-    });
-  };
+  //! FILTER FOR MULTIPLE TODO
+  //// DIDNT WORK
+  // const deleteToDos = (item) => {
+  //   todos.filter(function (item) {
+  //     const selectedList = document.querySelector(".selected-list").innerHTML;
+  //     if (item.list == selectedList && item.dateComp != "N/A") {
+  //       todos.splice(todos.indexOf(item), 1);
+  //     }
+  //   });
+  // };
 
   //! FILTER FOR ONE
   const deleteOneItem = (item) => {
@@ -29,20 +30,27 @@ const deleteFunctions = () => {
     });
   };
 
-  //! SINGLE BUTTON CLICK
+  //* SINGLE BUTTON CLICK
   deleteOne.onclick = () => {
     console.log("delete one");
     deleteOneItem();
     fillCurrentList();
   };
 
-  //! ALL COMPLETED ITEMS BUTTON
+  //* ALL COMPLETED ITEMS BUTTON
   deleteAllButton.onclick = () => {
     console.log("delete all");
-    todos.forEach((item) => {
-      deleteToDos(item);
+    //+ HAD TO USE FILTER INSTEAD OF SPLICE
+    todos = todos.filter(function (item) {
+      const selectedList = document.querySelector(".selected-list").innerHTML;
+      console.log(selectedList);
+      return (
+        item.list != selectedList ||
+        (item.list == selectedList && item.dateComp == "N/A")
+      );
     });
     fillCurrentList();
+    console.log(todos);
   };
 
   //? DELETE LISTS
@@ -69,7 +77,7 @@ const deleteFunctions = () => {
     });
   };
 
-  //! DELETE LIST BUTTON
+  //* DELETE LIST BUTTON
 
   deleteListButton.onclick = () => {
     console.log("list delete");
