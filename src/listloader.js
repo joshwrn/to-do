@@ -1,4 +1,5 @@
 import { addToLists, todos, lists } from "/src/lists.js";
+import { setItemStorage, setListStorage } from "/src/storage.js";
 
 //? FILL DETAILS SECTION WITH TODO DETAILS
 const notesText = document.getElementById("notes-text");
@@ -42,7 +43,7 @@ function selectNew(currentItem, newItem) {
 }
 
 const fillCurrentList = () => {
-  console.log("filling liffst");
+  console.log("filling current list");
   let filteredArray = [];
   const selectedList = document.querySelector(".selected-list").innerHTML;
   const listDiv = document.getElementById("inner-active-list");
@@ -78,6 +79,7 @@ const fillCurrentList = () => {
   });
   selectNew(null, listDiv.firstChild);
   getTodo();
+  setItemStorage();
 };
 
 const removeFill = () => {

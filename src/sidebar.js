@@ -1,6 +1,7 @@
 import { addToLists, todos, lists } from "/src/lists.js";
 import { fillCurrentList } from "/src/listloader.js";
 import { actions } from "/src/UI.js";
+import { setListStorage, setItemStorage } from "/src/storage.js";
 
 const listActions = () => {
   const sidebarSection = document.querySelector(".sidebar-section");
@@ -53,6 +54,7 @@ const listActions = () => {
         exportListToArray();
         //+ CREATE LIST ELEMENT
         createSideBarLists(inputList.value);
+
         //+ REMOVE INPUTBOX
         inputList.remove();
       }
@@ -63,10 +65,12 @@ const listActions = () => {
   const exportListToArray = () => {
     //+ GET THE SELECTED LIST NAME TO INSERT IT INTO THE TODO OBJECT
     const inputList = document.getElementById("new-list-input");
-    console.log("input list value " + inputList.value);
-    console.log(inputList.value);
+
     //+ RUN ADD TO ARRAY FUNCTION
     lists.push(inputList.value);
+    //+ SAVE TO LOCAL STORAGE
+    setListStorage();
+    setItemStorage();
 
     //+ CLEAR INPUT VALUE AFTER COMPLETE
 

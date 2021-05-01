@@ -1,5 +1,8 @@
-let lists = ["Sample List", "cool list"];
-let todos = [
+let lists = JSON.parse(localStorage.getItem("lists")) || [
+  "Sample List",
+  "cool list",
+];
+let todos = JSON.parse(localStorage.getItem("todos")) || [
   {
     list: "Sample List",
     todo: "This is a todo",
@@ -17,7 +20,7 @@ const newToDo = (list, todo, dateAdd, dateComp, priority, notes) => {
 const addToLists = (list, todo, dateAdd, dateComp, priority, notes) => {
   const create = newToDo(list, todo, dateAdd, dateComp, priority, notes);
   todos.push(create);
-  console.table(todos);
+
   //+ CHECK IF LIST ALREADY EXISTS BEFORE PUSHING
   if (lists.indexOf(list) == -1) {
     lists.push(create.list);

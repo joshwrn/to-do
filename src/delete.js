@@ -1,6 +1,7 @@
 import { addToLists, todos, lists } from "/src/lists.js";
 import { fillCurrentList } from "/src/listloader.js";
-import { listActions } from "./sidebar";
+import { listActions } from "/src/sidebar";
+import { setItemStorage, setListStorage } from "/src/storage.js";
 
 const deleteFunctions = () => {
   //? DELETE ITEMS
@@ -35,22 +36,24 @@ const deleteFunctions = () => {
     console.log("delete one");
     deleteOneItem();
     fillCurrentList();
+    setItemStorage();
   };
 
   //* ALL COMPLETED ITEMS BUTTON
   deleteAllButton.onclick = () => {
     console.log("delete all");
+
     //+ HAD TO USE FILTER INSTEAD OF SPLICE
     todos = todos.filter(function (item) {
       const selectedList = document.querySelector(".selected-list").innerHTML;
-      console.log(selectedList);
+
       return (
         item.list != selectedList ||
         (item.list == selectedList && item.dateComp == "N/A")
       );
     });
     fillCurrentList();
-    console.log(todos);
+    setItemStorage();
   };
 
   //? DELETE LISTS
@@ -97,6 +100,9 @@ const deleteFunctions = () => {
     //+ FILL FUNCTIONS
     listActions();
     fillCurrentList();
+
+    //+ SAVE
+    setListStorage();
   };
 };
 export { deleteFunctions };

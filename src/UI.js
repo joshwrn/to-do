@@ -1,4 +1,5 @@
 import { addToLists, todos, lists } from "/src/lists.js";
+import { setItemStorage, setListStorage } from "/src/storage.js";
 
 const actions = () => {
   //* MARK ITEMS AS DONE OR NOT
@@ -22,10 +23,11 @@ const actions = () => {
     //? CREATE ON ENTER PRESS
     inputToDo.addEventListener("keydown", (e) => {
       if (e.keyCode === 13 && inputToDo.value != "") {
-        console.log("enter1 create new todo");
+        console.log("enter create new todo");
         creation();
         exportToArray();
         getTodo();
+        setItemStorage();
       }
     });
 
@@ -36,6 +38,7 @@ const actions = () => {
         creation();
         exportToArray();
         getTodo();
+        setItemStorage();
       }
     });
 
@@ -63,7 +66,6 @@ const actions = () => {
     const exportToArray = () => {
       //+ GET THE SELECTED LIST NAME TO INSERT IT INTO THE TODO OBJECT
       const selectedList = document.querySelector(".selected-list").innerHTML;
-      console.log("input value " + inputToDo.value);
 
       //+ RUN ADD TO ARRAY FUNCTION
       addToLists(
@@ -146,7 +148,7 @@ const actions = () => {
   const setCompleteDate = () => {
     todos.find((selectedTodo) => {
       const currentItem = document.querySelector(".selected-item").innerHTML;
-      console.log("current todo " + currentItem);
+
       if (selectedTodo.todo == currentItem && selectedTodo.dateComp == "N/A") {
         //* FILL DATES
         dateCompleted.innerHTML = `Date Completed: ${new Date().toLocaleDateString()}`;
@@ -158,6 +160,7 @@ const actions = () => {
         dateCompleted.innerHTML = "Date Completed: N/A";
         selectedTodo.dateComp = "N/A";
       }
+      setItemStorage();
     });
   };
 
@@ -215,11 +218,13 @@ const actions = () => {
   };
   priorityButton.onclick = () => {
     setPriority();
+    setItemStorage();
   };
 
   //! EDIT NOTES
   notesText.onblur = () => {
     openItem.notes = notesText.innerHTML;
+    setItemStorage();
   };
 };
 
