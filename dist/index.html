@@ -15,7 +15,7 @@
 
 <body>
     <div id="content">
-
+        <!--? SIDEBAR -->
         <div id="sidebar">
             <div id="inner-sidebar">
                 <h3 id="sidebar-logo"><span class="material-icons-sharp logo-icon">
@@ -23,9 +23,10 @@
                     </span> Aspects</h3>
                 <div class="sidebar-section">
                     <p class="sidebar-section-header" data-section="0">
+
                         Current Lists <span class="material-icons-outlined sidebar-add">
                             add
-                        </span></p>
+                        </span> </p>
 
                     <div id="sidebar-list-view">
                     </div>
@@ -33,13 +34,13 @@
             </div>
             <div id="sidebar-footer">
                 <div id="inner-sidebar-footer">
-                    <span class="material-icons-sharp footer-icon">
-                        settings
+                    <span id="delete-list" class="material-icons-outlined">
+                        delete_outline
                     </span>
                 </div>
             </div>
         </div>
-
+        <!--? MAIN SECTION -->
         <div id="main">
             <div id="active-list">
                 <h3 id="active-items-header">Current List</h3>
@@ -48,12 +49,18 @@
                     <button id="add-item-button"><span id="add-item-button-icon" class="material-icons-outlined">
                             add_circle_outline
                         </span></button>
+                    <button id="delete-all-button"><span id="add-item-button-icon" class="material-icons-outlined">
+                            clear_all
+                        </span></button>
                 </div>
                 <div id="inner-active-list">
                 </div>
             </div>
+            <!--? DETAILS -->
             <div id="details">
-                <h3 id="details-header">Details</h3>
+                <h3 id="details-header">Details <span id="delete-todo" class="material-icons-outlined">
+                        delete_outline
+                    </span></h3>
                 <div id="details-inner">
                     <div id="notes">
                         <h3 id="notes-header">Notes</h3>
@@ -76,6 +83,7 @@
                             <h3 id="priority-header">Priority</h3>
                             <button class="normal-priority-button" id="priority-button">Normal</button>
                         </div>
+
                     </div>
                 </div>
             </div>

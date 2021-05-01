@@ -221,47 +221,6 @@ const actions = () => {
   notesText.onblur = () => {
     openItem.notes = notesText.innerHTML;
   };
-
-  //? FILL CURRENT LIST SECTION
-
-  //! MAIN FUNCTION
-  const fillCurrentList = () => {
-    console.log("filling liffst");
-    let filteredArray = [];
-    const selectedList = document.querySelector(".selected-list").innerHTML;
-    const listDiv = document.getElementById("inner-active-list");
-
-    const filterToDos = (() => {
-      filteredArray = todos.filter(function (item) {
-        if (item.list == selectedList) {
-          return true;
-        }
-      });
-    })();
-
-    const appendTodDos = (item) => {
-      //+ GET THE INNER DIV AND FIRST CHILD
-      let theFirstChild = listDiv.firstChild;
-
-      //+ CREAT TODO BUTTON AND GET VALUE FROM INPUT
-      const newToDo = document.createElement("button");
-      newToDo.textContent = item.todo;
-
-      //+ INSERT THE NEW TODO TO DIV
-      newToDo.classList.add("item");
-      newToDo.classList.add(`${item.priority.toLowerCase()}-priority`);
-      listDiv.insertBefore(newToDo, theFirstChild);
-    };
-
-    filteredArray.forEach((item) => {
-      appendTodDos(item);
-    });
-    selectNew(null, listDiv.firstChild);
-    getTodo();
-  };
-
-  //! PAGE LOAD FUNCTIONS
-  fillCurrentList();
 };
 
 export { actions };

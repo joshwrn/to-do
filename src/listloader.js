@@ -66,6 +66,9 @@ const fillCurrentList = () => {
     //+ INSERT THE NEW TODO TO DIV
     newToDo.classList.add("item");
     newToDo.classList.add(`${item.priority.toLowerCase()}-priority`);
+    if (item.dateComp != "N/A") {
+      newToDo.classList.add("inactive");
+    }
     listDiv.insertBefore(newToDo, theFirstChild);
   };
   listDiv.innerHTML = "";
@@ -75,6 +78,37 @@ const fillCurrentList = () => {
   });
   selectNew(null, listDiv.firstChild);
   getTodo();
+};
+
+const removeFill = () => {
+  notesText.innerHTML = "";
+  //* remove DATES
+  dateAdded.innerHTML = `Date Added:`;
+  dateCompleted.innerHTML = `Date Completed: N/A`;
+
+  //* remove PRIORITY
+  priorityButton.textContent = "Normal";
+  //+ SET SELECTED PRIORITY SET IT TO LOWERCLASS AND SET THAT AS THE BUTTON CLASS
+  priorityButton.className = "normal-priority";
+};
+
+const checkForItems = () => {
+  let test = "false";
+  const e = todos.some((item) => {
+    if (item.list == document.querySelector(".selected-list").innerHTML) {
+      test = "true";
+      console.log("found list");
+    }
+  });
+};
+
+const checkOrFill = () => {
+  checkForItems();
+  if (test == "true") {
+    fillCurrentList();
+  } else {
+    removeFill();
+  }
 };
 
 export { fillCurrentList };

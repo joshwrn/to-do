@@ -199,6 +199,11 @@ body {
   cursor: pointer;
 }
 
+#delete-list {
+  transition: 500ms;
+  cursor: pointer;
+}
+
 /*? MAIN SECTION */
 
 #main {
@@ -248,7 +253,14 @@ input::placeholder {
 }
 
 #add-item-button {
-  padding-left: 10%;
+  padding-left: 5%;
+  color: white;
+  border: none;
+  background: rgba(0, 0, 0, 0);
+}
+
+#delete-all-button {
+  padding-left: 5%;
   color: white;
   border: none;
   background: rgba(0, 0, 0, 0);
@@ -260,7 +272,7 @@ input::placeholder {
   position: relative;
   display: grid;
   grid-template-rows: 1fr 1fr 10fr;
-  padding: 0 10% 20% 10%;
+  padding: 0 5% 20% 10%;
 }
 
 #inner-active-list {
@@ -508,4 +520,11 @@ input::placeholder {
 
 .low-priority-button:hover {
   animation: low-flicker 0.8s linear 0s infinite alternate;
+}
+
+/*! DELETE BUTTON */
+
+#delete-todo {
+  font-size: 1.5rem !important;
+  transform: translateY(2px);
 }
