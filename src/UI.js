@@ -1,17 +1,17 @@
-import { addToLists, todos, lists } from "/src/lists.js";
-import { setItemStorage, setListStorage } from "/src/storage.js";
+import { addToLists, todos, lists } from '/src/lists.js';
+import { setItemStorage, setListStorage } from '/src/storage.js';
 
 const actions = () => {
   //* MARK ITEMS AS DONE OR NOT
 
-  document.addEventListener("dblclick", (e) => {
-    if (e.target.matches(".inactive")) {
-      e.target.classList.remove("inactive");
-      console.log("unmark");
+  document.addEventListener('dblclick', (e) => {
+    if (e.target.matches('.inactive')) {
+      e.target.classList.remove('inactive');
+      console.log('unmark');
       setCompleteDate();
-    } else if (e.target.matches(".item")) {
-      e.target.classList.add("inactive");
-      console.log("mark as done");
+    } else if (e.target.matches('.item')) {
+      e.target.classList.add('inactive');
+      console.log('mark as done');
       setCompleteDate();
     }
   });
@@ -19,11 +19,11 @@ const actions = () => {
   //* CREATE NEW TODO
 
   const createNewToDo = (() => {
-    const inputToDo = document.getElementById("new-todo-input");
+    const inputToDo = document.getElementById('new-todo-input');
     //? CREATE ON ENTER PRESS
-    inputToDo.addEventListener("keydown", (e) => {
-      if (e.keyCode === 13 && inputToDo.value != "") {
-        console.log("enter create new todo");
+    inputToDo.addEventListener('keydown', (e) => {
+      if (e.keyCode === 13 && inputToDo.value != '') {
+        console.log('enter create new todo');
         creation();
         exportToArray();
         getTodo();
@@ -32,9 +32,9 @@ const actions = () => {
     });
 
     //? CREATE ON BUTTON CLICK
-    document.addEventListener("click", (e) => {
-      if (e.target.matches("#add-item-button-icon") && inputToDo.value != "") {
-        console.log("click create new todo");
+    document.addEventListener('click', (e) => {
+      if (e.target.matches('#add-item-button-icon') && inputToDo.value != '') {
+        console.log('click create new todo');
         creation();
         exportToArray();
         getTodo();
@@ -45,16 +45,16 @@ const actions = () => {
     //? TODO CREATION FUNCTION
     const creation = () => {
       //+ GET THE INNER DIV AND FIRST CHILD
-      const listDiv = document.getElementById("inner-active-list");
+      const listDiv = document.getElementById('inner-active-list');
       let theFirstChild = listDiv.firstChild;
 
       //+ CREAT TODO BUTTON AND GET VALUE FROM INPUT
-      const newToDo = document.createElement("button");
+      const newToDo = document.createElement('button');
       newToDo.textContent = inputToDo.value;
 
       //+ INSERT THE NEW TODO TO DIV
-      newToDo.classList.add("item");
-      newToDo.classList.add("normal-priority");
+      newToDo.classList.add('item');
+      newToDo.classList.add('normal-priority');
       listDiv.insertBefore(newToDo, theFirstChild);
 
       //+ CHANGE SELECTION TO NEW TODO
@@ -65,20 +65,20 @@ const actions = () => {
 
     const exportToArray = () => {
       //+ GET THE SELECTED LIST NAME TO INSERT IT INTO THE TODO OBJECT
-      const selectedList = document.querySelector(".selected-list").innerHTML;
+      const selectedList = document.querySelector('.selected-list').innerHTML;
 
       //+ RUN ADD TO ARRAY FUNCTION
       addToLists(
         selectedList,
         inputToDo.value,
         new Date().toLocaleDateString(),
-        "N/A",
-        "Normal",
-        ""
+        'N/A',
+        'Normal',
+        ''
       );
 
       //+ CLEAR INPUT VALUE AFTER COMPLETE
-      inputToDo.value = "";
+      inputToDo.value = '';
     };
   })();
 
@@ -86,8 +86,8 @@ const actions = () => {
 
   //! TODO CLICK FUNCTION
 
-  document.addEventListener("click", (e) => {
-    if (e.target.matches(".item")) {
+  document.addEventListener('click', (e) => {
+    if (e.target.matches('.item')) {
       changeSelection(e.target);
       getTodo();
     }
@@ -95,34 +95,34 @@ const actions = () => {
 
   //! FIGURE OUT SELECTED ITEM
   const changeSelection = (selection) => {
-    const currentItem = document.querySelector(".selected-item");
+    const currentItem = document.querySelector('.selected-item');
     const newItem = selection;
     selectNew(currentItem, newItem);
-    console.log("select");
+    console.log('select');
   };
 
   //! SWITCH CLASS TO SELECTED
   function selectNew(currentItem, newItem) {
     if (currentItem == null) {
-      newItem.classList.add("selected-item");
+      newItem.classList.add('selected-item');
     } else {
-      currentItem.classList.remove("selected-item");
-      newItem.classList.add("selected-item");
+      currentItem.classList.remove('selected-item');
+      newItem.classList.add('selected-item');
     }
   }
 
   //? FILL DETAILS SECTION WITH TODO DETAILS
-  const notesText = document.getElementById("notes-text");
-  const dateAdded = document.getElementById("date-added-text");
-  const dateCompleted = document.getElementById("date-completed-text");
-  const priorityButton = document.getElementById("priority-button");
+  const notesText = document.getElementById('notes-text');
+  const dateAdded = document.getElementById('date-added-text');
+  const dateCompleted = document.getElementById('date-completed-text');
+  const priorityButton = document.getElementById('priority-button');
 
   //! GET THE RIGHT TODO
   let openItem;
   const getTodo = () => {
     todos.find((selectedTodo) => {
-      const currentItem = document.querySelector(".selected-item").innerHTML;
-      console.log("current todo " + currentItem);
+      const currentItem = document.querySelector('.selected-item').innerHTML;
+      console.log('current todo ' + currentItem);
       if (selectedTodo.todo == currentItem) {
         //* RUN THE FILL FUNCTIONS
         console.log(selectedTodo);
@@ -147,18 +147,18 @@ const actions = () => {
   //! CHANGE COMPLETION STATUS
   const setCompleteDate = () => {
     todos.find((selectedTodo) => {
-      const currentItem = document.querySelector(".selected-item").innerHTML;
+      const currentItem = document.querySelector('.selected-item').innerHTML;
 
-      if (selectedTodo.todo == currentItem && selectedTodo.dateComp == "N/A") {
+      if (selectedTodo.todo == currentItem && selectedTodo.dateComp == 'N/A') {
         //* FILL DATES
         dateCompleted.innerHTML = `Date Completed: ${new Date().toLocaleDateString()}`;
         selectedTodo.dateComp = new Date().toLocaleDateString();
       } else if (
         selectedTodo.todo == currentItem &&
-        selectedTodo.dateComp != "N/A"
+        selectedTodo.dateComp != 'N/A'
       ) {
-        dateCompleted.innerHTML = "Date Completed: N/A";
-        selectedTodo.dateComp = "N/A";
+        dateCompleted.innerHTML = 'Date Completed: N/A';
+        selectedTodo.dateComp = 'N/A';
       }
       setItemStorage();
     });
@@ -166,7 +166,7 @@ const actions = () => {
 
   //!  PRIORITY SET FUNCTION
   const prioritySetFunction = (status, button, old, next, current) => {
-    const currentItem = document.querySelector(".selected-item");
+    const currentItem = document.querySelector('.selected-item');
     const currentItemInner = currentItem.innerHTML;
 
     //+ PRIORITY BUTTON CHANGE COLOR
@@ -183,33 +183,33 @@ const actions = () => {
 
   //! CHANGE PRIORITY STATUS
   const setPriority = () => {
-    console.log("set priority");
+    console.log('set priority');
     todos.find((selectedTodo) => {
-      const currentItem = document.querySelector(".selected-item");
+      const currentItem = document.querySelector('.selected-item');
       const currentItemInner = currentItem.innerHTML;
       if (selectedTodo.todo == currentItemInner) {
-        if (selectedTodo.priority == "Normal") {
+        if (selectedTodo.priority == 'Normal') {
           prioritySetFunction(
-            "Important",
-            "important-priority-button",
-            "normal-priority",
-            "important-priority",
+            'Important',
+            'important-priority-button',
+            'normal-priority',
+            'important-priority',
             selectedTodo
           );
-        } else if (selectedTodo.priority == "Important") {
+        } else if (selectedTodo.priority == 'Important') {
           prioritySetFunction(
-            "Low",
-            "low-priority-button",
-            "important-priority",
-            "low-priority",
+            'Low',
+            'low-priority-button',
+            'important-priority',
+            'low-priority',
             selectedTodo
           );
-        } else if (selectedTodo.priority == "Low") {
+        } else if (selectedTodo.priority == 'Low') {
           prioritySetFunction(
-            "Normal",
-            "normal-priority-button",
-            "low-priority",
-            "normal-priority",
+            'Normal',
+            'normal-priority-button',
+            'low-priority',
+            'normal-priority',
             selectedTodo
           );
         }

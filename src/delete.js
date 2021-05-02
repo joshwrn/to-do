@@ -1,13 +1,13 @@
-import { addToLists, todos, lists } from "/src/lists.js";
-import { fillCurrentList } from "/src/listloader.js";
-import { listActions } from "/src/sidebar";
-import { setItemStorage, setListStorage } from "/src/storage.js";
+import { addToLists, todos, lists } from '/src/lists.js';
+import { fillCurrentList } from '/src/listloader.js';
+import { listActions } from '/src/sidebar';
+import { setItemStorage, setListStorage } from '/src/storage.js';
 
 const deleteFunctions = () => {
   //? DELETE ITEMS
-  const deleteAllButton = document.getElementById("delete-all-button");
-  const deleteOne = document.getElementById("delete-todo");
-  const sidebarLists = document.getElementById("sidebar-list-view");
+  const deleteAllButton = document.getElementById('delete-all-button');
+  const deleteOne = document.getElementById('delete-todo');
+  const sidebarLists = document.getElementById('sidebar-list-view');
   let filteredArray = [];
 
   //! FILTER FOR MULTIPLE TODO
@@ -24,7 +24,7 @@ const deleteFunctions = () => {
   //! FILTER FOR ONE
   const deleteOneItem = (item) => {
     todos.filter(function (item) {
-      const currentItem = document.querySelector(".selected-item").innerHTML;
+      const currentItem = document.querySelector('.selected-item').innerHTML;
       if (item.todo == currentItem) {
         todos.splice(todos.indexOf(item), 1);
       }
@@ -33,7 +33,7 @@ const deleteFunctions = () => {
 
   //* SINGLE BUTTON CLICK
   deleteOne.onclick = () => {
-    console.log("delete one");
+    console.log('delete one');
     deleteOneItem();
     fillCurrentList();
     setItemStorage();
@@ -41,15 +41,15 @@ const deleteFunctions = () => {
 
   //* ALL COMPLETED ITEMS BUTTON
   deleteAllButton.onclick = () => {
-    console.log("delete all");
+    console.log('delete all');
 
     //+ HAD TO USE FILTER INSTEAD OF SPLICE
     todos = todos.filter(function (item) {
-      const selectedList = document.querySelector(".selected-list").innerHTML;
+      const selectedList = document.querySelector('.selected-list').innerHTML;
 
       return (
         item.list != selectedList ||
-        (item.list == selectedList && item.dateComp == "N/A")
+        (item.list == selectedList && item.dateComp == 'N/A')
       );
     });
     fillCurrentList();
@@ -58,12 +58,12 @@ const deleteFunctions = () => {
 
   //? DELETE LISTS
 
-  const deleteListButton = document.getElementById("delete-list");
+  const deleteListButton = document.getElementById('delete-list');
 
   //! FILTER FOR TODOS THAT MATCH DELETED LIST
   const deleteMatchingToDos = (item) => {
     todos.filter(function (item) {
-      const selectedList = document.querySelector(".selected-list").innerHTML;
+      const selectedList = document.querySelector('.selected-list').innerHTML;
       if (item.list == selectedList) {
         todos.splice(todos.indexOf(item), 1);
       }
@@ -73,7 +73,7 @@ const deleteFunctions = () => {
   //! FILTER DELETE LIST FROM LIST ARRAY
   const deleteList = (list) => {
     lists.filter(function (list) {
-      const selectedList = document.querySelector(".selected-list").innerHTML;
+      const selectedList = document.querySelector('.selected-list').innerHTML;
       if (list == selectedList) {
         lists.splice(lists.indexOf(list), 1);
       }
@@ -83,7 +83,7 @@ const deleteFunctions = () => {
   //* DELETE LIST BUTTON
 
   deleteListButton.onclick = () => {
-    console.log("list delete");
+    console.log('list delete');
     //+ DELETE LIST FROM ARRAY
     lists.forEach((list) => {
       deleteList(list);
@@ -95,7 +95,7 @@ const deleteFunctions = () => {
     });
 
     //+ CLEAR SIDEBAR
-    sidebarLists.innerHTML = "";
+    sidebarLists.innerHTML = '';
 
     //+ FILL FUNCTIONS
     listActions();
